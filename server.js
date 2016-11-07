@@ -2,6 +2,10 @@ const express = require("express");
 const hbs = require("hbs");
 const fs = require("fs");
 
+// ENV almacena todas las variables globales del sistema.
+// En este caso solo necesitamos obtener el puerto. PORT::
+const port = process.env.PORT || 3100;
+
 var app = express();
 
 hbs.registerPartials(__dirname + "/views/partials");
@@ -84,7 +88,8 @@ app.get("/bad", function(request, response){
 	});
 });
 
+
 // Indicamos el puerto que usará el servidor::
-app.listen(3100, function(){
-	console.log("Server is up on port 3100");
+app.listen(port, function(){
+	console.log(`Server is up on port ${port}`);
 });
