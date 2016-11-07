@@ -82,6 +82,14 @@ app.get("/about", function(request, response){
 	});
 });
 
+app.get("/projects", function(request, response){
+	// Le indicamos a Node que el url /about hará el render de about.hbs::
+	response.render("projects.hbs", {
+		pageTitle: "Project Page",
+		pageText: "This is going to be our portfolio page."
+	});
+});
+
 app.get("/bad", function(request, response){
 	response.send({
 		errorMessage: "Fuck!! Something went wrong."
